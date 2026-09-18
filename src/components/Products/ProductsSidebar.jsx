@@ -7,6 +7,8 @@ import LinkWithIcon from '../LinkWithIcon'
 
 import useData from '../../hooks/useData'
 
+import config from '../../config.json'
+
 const ProductsSidebar = () => {
 
     const{data: categories, error} = useData("/category");
@@ -23,7 +25,7 @@ const ProductsSidebar = () => {
            key={category._id}
            id= {category._id}
             link={`/products?category=${category.name}`}
-            emoji={`http://localhost:5000/category/${category.image}`}
+            emoji={`${config.backendURL}/category/${category.image}`}
             sidebar={true}
             /> ))}
             
