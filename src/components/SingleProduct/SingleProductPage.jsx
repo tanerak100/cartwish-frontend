@@ -8,6 +8,8 @@ import Loader from '../Common/Loader'
 import CartContext from '../../contexts/CartContext';
 import UserContext from '../../contexts/UserContext';
 
+import config from "../../config.json"
+
 // const product = {
 //         id: 1,
 //         title: "Product Title",
@@ -48,14 +50,14 @@ const SingleProductPage = () => {
                 {
                   data?.images &&  data.images.map((image, index) => (
                     <img 
-                         src={`http://localhost:5000/products/${image}`} 
+                         src={`${config.backendURL}/products/${image}`} 
                          alt={data.title} 
                          className={selectedImage === index ? 'selected_image' : ''}
                          onClick={() => setSelectedImage(index)}/>
                         ))
                 }
             </div>
-            <img src={`http://localhost:5000/products/${data.images[selectedImage]}`} 
+            <img src={`${config.backendURL}/products/${data.images[selectedImage]}`} 
                 alt={data.title}
                 className='single_product_display'
                 />
