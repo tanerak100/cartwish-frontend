@@ -12,6 +12,8 @@ import CartContext from '../../contexts/CartContext'
 import { checkoutAPI } from '../../Services/orderServices'
 import { toast } from 'react-toastify'
 
+import config from '../../config.json'
+
 const CartPage = () => {
   
    
@@ -44,7 +46,7 @@ const CartPage = () => {
   return (
     <section className="align_center cart_page">
         <div className="align_center user_info">
-            <img src={`http://localhost:5000/profile/${userObj?.profilePic}`} alt="user profile" />
+            <img src={`${config.backendURL}/profile/${userObj?.profilePic}`} alt="user profile" />
             <div>
                 <p className="user_name">Name: {userObj?.name}</p>
                 <p className="user_email">Email: {userObj?.email}</p>
